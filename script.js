@@ -87,34 +87,9 @@ doneOption.addEventListener('click', (e) => {
 async function searchWord(word) {
     console.clear();
     console.log(word);
-    let url = `https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=api-key`;
-    let response = await axios.get(url);
-    let count = 1;
-    console.log(response);
-    response.data.forEach(def => {
-        if (def.def) {
-            console.log('Definition:', count);
-            def.def[0].sseq.forEach(sseq => {
-                sseq.forEach(b => {
-                    if (b[1].dt) {
-                        b[1].dt.forEach(c => {
-                            if (c[0] === "text") {
-                                console.log("Meaning: ", c[1])
-                            };
-                            if (c[0] === "vis") {
-                                console.log("Example: ", c[1][0].t)
-                            };
-                        })
-                    }
-                    // console.log(data[0][1]);
-                })
-            })
-            count++;
-        } else {
-            // searchWord(def.meta.stems[2]);
-        }
-        // console.log(data[0][1], data[1][1][0].t.replace('{wi}', '#'));
-    });
+    let url = "Some api url";
+    // let response = await axios.get(url);
+    // console.log(response);
 }
 
 // input.addEventListener('change', (e)=>{
