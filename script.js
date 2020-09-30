@@ -3,11 +3,12 @@ const marks = new Set([' ', ',', '.', ':', ';', '"', '\'', '?', '+', '(', ')', '
 let editState = 0;
 const input = document.getElementById("inp");
 const textDiv = document.querySelector(".text-div");
+const textDivContainer = document.querySelector(".text-div-container");
 const editOption = document.querySelector(".edit");
 const doneOption = document.querySelector(".done");
 
-textDiv.textContent = text;
-input.value = text;
+// textDiv.textContent = text;
+// input.value = text;
 // input.style.minHeight = `${input.scrollHeight}px`;
 // input.value = text + text + text;
 
@@ -62,7 +63,8 @@ function processSelection(selection) {
 
 editOption.addEventListener('click', (e) => {
     if(!editState){
-        // input.value = textDiv.textContent;
+        input.value = textDiv.textContent;
+        textDivContainer.classList.toggle("hide");
         textDiv.classList.toggle("hide");
         input.classList.toggle("hide");
         input.select();
@@ -74,8 +76,9 @@ editOption.addEventListener('click', (e) => {
 });
 doneOption.addEventListener('click', (e) => {
     if(editState){
-        textDiv.textContent = input.value;
         textDiv.classList.toggle("hide");
+        textDivContainer.classList.toggle("hide");
+        textDiv.textContent = input.value;
         input.classList.toggle("hide");
         input.select();
         editOption.classList.toggle("hide");
@@ -85,11 +88,10 @@ doneOption.addEventListener('click', (e) => {
 });
 
 async function searchWord(word) {
-    console.clear();
+    // console.clear();
     console.log(word);
     let url = "Some api url";
-    // let response = await axios.get(url);
-    // console.log(response);
+    console.log(response);
 }
 
 // input.addEventListener('change', (e)=>{

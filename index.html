@@ -5,10 +5,9 @@
   <meta charset="utf-8" />
   <link rel="icon" href="#" />
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=EB+Garamond&display=swap" rel="stylesheet">
 
 
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
@@ -24,30 +23,89 @@
       <div class="side-bar">
         <img src="logo.png" alt="logo" class="side-bar__logo">
       </div>
-      <div class="textarea-container scroller">
-        <div class="edit-icon plus hide"></div>
-        <div class="edit-icon minus hide"></div>
-        <svg class="edit-icon edit" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-          <g><g><g><path d="M352.459,220c0-11.046-8.954-20-20-20h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206 C343.505,240,352.459,231.046,352.459,220z" />
-          <path d="M126.459,280c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20H251.57c11.046,0,20-8.954,20-20c0-11.046-8.954-20-20-20 H126.459z" />
-          <path d="M173.459,472H106.57c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v123 c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H106.57c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h66.889c11.046,0,20-8.954,20-20C193.459,480.954,184.505,472,173.459,472z" />
-          <path d="M467.884,289.572c-23.394-23.394-61.458-23.395-84.837-0.016l-109.803,109.56c-2.332,2.327-4.052,5.193-5.01,8.345 l-23.913,78.725c-2.12,6.98-0.273,14.559,4.821,19.78c3.816,3.911,9,6.034,14.317,6.034c1.779,0,3.575-0.238,5.338-0.727 l80.725-22.361c3.322-0.92,6.35-2.683,8.79-5.119l109.573-109.367C491.279,351.032,491.279,312.968,467.884,289.572z M333.776,451.768l-40.612,11.25l11.885-39.129l74.089-73.925l28.29,28.29L333.776,451.768z M439.615,346.13l-3.875,3.867 l-28.285-28.285l3.862-3.854c7.798-7.798,20.486-7.798,28.284,0C447.399,325.656,447.399,338.344,439.615,346.13z" />
-          <path d="M332.459,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S343.505,120,332.459,120z" />
-          <title>Edit</title>
-          </g></g></g>
-        </svg>
-        <svg class="edit-icon done hide" viewBox="-27 0 512 512" xmlns="http://www.w3.org/2000/svg"><title>Done</title><path d="m215 492c0 11.046875-8.953125 20-20 20h-115c-44.113281 0-80-35.886719-80-80v-352c0-44.113281 35.886719-80 80-80h245.890625c44.109375 0 80 35.886719 80 80v212c0 11.046875-8.957031 20-20 20-11.046875 0-20-8.953125-20-20v-212c0-22.054688-17.945313-40-40-40h-245.890625c-22.054688 0-40 17.945312-40 40v352c0 22.054688 17.945312 40 40 40h115c11.046875 0 20 8.953125 20 20zm235.640625-166.261719c-8.980469-6.429687-21.472656-4.359375-27.902344 4.617188l-98.582031 137.703125c-2.691406 3.121094-6.066406 3.792968-7.871094 3.914062-1.867187.121094-5.476562-.113281-8.574218-3.0625l-63.820313-61.28125c-7.964844-7.648437-20.625-7.394531-28.277344.574219-7.652343 7.96875-7.394531 20.628906.574219 28.277344l63.882812 61.34375c9.570313 9.105469 22.339844 14.175781 35.480469 14.175781 1.128907 0 2.261719-.039062 3.394531-.113281 14.3125-.953125 27.675782-7.914063 36.664063-19.101563.230469-.285156.457031-.582031.671875-.882812l98.980469-138.261719c6.429687-8.980469 4.363281-21.472656-4.621094-27.902344zm-144.75-205.738281h-206c-11.046875 0-20 8.953125-20 20s8.953125 20 20 20h206c11.042969 0 20-8.953125 20-20s-8.957031-20-20-20zm20 100c0-11.046875-8.957031-20-20-20h-206c-11.046875 0-20 8.953125-20 20s8.953125 20 20 20h206c11.042969 0 20-8.953125 20-20zm-226 60c-11.046875 0-20 8.953125-20 20s8.953125 20 20 20h125.109375c11.046875 0 20-8.953125 20-20s-8.953125-20-20-20zm0 0"/></svg>
-        <div class="text-div"></div>
-        <textarea type="text" id="inp" class="inp scroller hide" spellcheck="false"></textarea>
+      <div class="textarea-container ">
+        <div class="edit-menu">
+          <svg class="edit-icon edit" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+            <g><g><g><path d="M352.459,220c0-11.046-8.954-20-20-20h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206 C343.505,240,352.459,231.046,352.459,220z" />
+            <path d="M126.459,280c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20H251.57c11.046,0,20-8.954,20-20c0-11.046-8.954-20-20-20 H126.459z" />
+            <path d="M173.459,472H106.57c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v123 c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H106.57c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h66.889c11.046,0,20-8.954,20-20C193.459,480.954,184.505,472,173.459,472z" />
+            <path d="M467.884,289.572c-23.394-23.394-61.458-23.395-84.837-0.016l-109.803,109.56c-2.332,2.327-4.052,5.193-5.01,8.345 l-23.913,78.725c-2.12,6.98-0.273,14.559,4.821,19.78c3.816,3.911,9,6.034,14.317,6.034c1.779,0,3.575-0.238,5.338-0.727 l80.725-22.361c3.322-0.92,6.35-2.683,8.79-5.119l109.573-109.367C491.279,351.032,491.279,312.968,467.884,289.572z M333.776,451.768l-40.612,11.25l11.885-39.129l74.089-73.925l28.29,28.29L333.776,451.768z M439.615,346.13l-3.875,3.867 l-28.285-28.285l3.862-3.854c7.798-7.798,20.486-7.798,28.284,0C447.399,325.656,447.399,338.344,439.615,346.13z" />
+            <path d="M332.459,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S343.505,120,332.459,120z" />
+            <title>Edit</title>
+            </g></g></g>
+          </svg>
+          <svg class="edit-icon done hide" viewBox="-27 0 512 512" xmlns="http://www.w3.org/2000/svg"><title>Done</title><path d="m215 492c0 11.046875-8.953125 20-20 20h-115c-44.113281 0-80-35.886719-80-80v-352c0-44.113281 35.886719-80 80-80h245.890625c44.109375 0 80 35.886719 80 80v212c0 11.046875-8.957031 20-20 20-11.046875 0-20-8.953125-20-20v-212c0-22.054688-17.945313-40-40-40h-245.890625c-22.054688 0-40 17.945312-40 40v352c0 22.054688 17.945312 40 40 40h115c11.046875 0 20 8.953125 20 20zm235.640625-166.261719c-8.980469-6.429687-21.472656-4.359375-27.902344 4.617188l-98.582031 137.703125c-2.691406 3.121094-6.066406 3.792968-7.871094 3.914062-1.867187.121094-5.476562-.113281-8.574218-3.0625l-63.820313-61.28125c-7.964844-7.648437-20.625-7.394531-28.277344.574219-7.652343 7.96875-7.394531 20.628906.574219 28.277344l63.882812 61.34375c9.570313 9.105469 22.339844 14.175781 35.480469 14.175781 1.128907 0 2.261719-.039062 3.394531-.113281 14.3125-.953125 27.675782-7.914063 36.664063-19.101563.230469-.285156.457031-.582031.671875-.882812l98.980469-138.261719c6.429687-8.980469 4.363281-21.472656-4.621094-27.902344zm-144.75-205.738281h-206c-11.046875 0-20 8.953125-20 20s8.953125 20 20 20h206c11.042969 0 20-8.953125 20-20s-8.957031-20-20-20zm20 100c0-11.046875-8.957031-20-20-20h-206c-11.046875 0-20 8.953125-20 20s8.953125 20 20 20h206c11.042969 0 20-8.953125 20-20zm-226 60c-11.046875 0-20 8.953125-20 20s8.953125 20 20 20h125.109375c11.046875 0 20-8.953125 20-20s-8.953125-20-20-20zm0 0"/></svg>
+          
+        </div>
+        <div class="text-div-container">
+          <div class="text-div">Geneva is not only Switzerland’s capital but also its major hub. It serves the southern area of Switzerland as well as France and a variety of major ski areas in the Alps including popular destinations such as Chamonix and Portes du Soleil.
+
+Most visitors here see little of the surrounding area apart from the airport and if they do stop for a day or two it is to tick Geneva off the bucket list and visit popular sites such as the UN buildings.
+
+However, within an hour or two from Geneva, there is so much more to explore. Afterall Switzerland is a gorgeous country where mirror-like lakes are flanked by snow-capped mountains and wine tasting, skiing, mountain biking and hiking are all possible, even within the same day.
+
+Here’s our suggestions:
+
+Montreaux – the Swiss Riviera
+Take the train out of Geneva to the other side of the lake Geneva and you’ll be greeted with one of the most scenic public transport journeys in the world: Montreaux – where lake meets mountains.
+
+Home to the well-heeled and the old stomping grounds for many famous bands (this is where Queen once had their studios), Montreux has many stories to tell. That is if you can draw yourself away from the view.
+
+
+Castle Chillon, Montreux
+Many of these stories are hidden within the walls of the majestic Chillon Castle, a romantic and quirky ancient castle that sits on the lake itself and is possibly one of the most Insta-worthy destinations in all of Switzerland.
+
+But don’t just marvel at the castle from the outside, be taken on a journey back in time and discover the tales of Dukes, armed men, torture chambers, miraculous escapes.
+
+STAY: Hotel Bristol is a fantastic spot offering spacious self-catering apartments and some of the best views of the lake.
+
+Ski at Crans Montana
+Nestled about two hours from Geneva, Crans Montana is a lovely ski resort (see our guide to Crans Montana). This small family-friendly resort isn’t as intimidating as some of the country’s larger ski resorts and is perfect for beginners and children. A free cable car takes you to a kiddie’s zone so you can visit for the day and don’t have to worry about forking out for expensive ski passes and the like.
+
+Take dinner at L’Etrier. They serve a delicious dinner of traditional raclette (cheese heated up over an open fire and served with bread and potatoes) and pair this with a chilled class of homegrown dry, fruity Chasselas white wine at 
+
+STAY: Le Crans Hotel where you will find a Michelin star restaurant with beautiful views of the Alps. In the Crans Montana town centre you will even find Le XIX, of Michel Roux fame!
+
+Cheesy goodness at Gruyères
+Gruyere cheese factory
+Gruyere cheese factory
+Get there at the right time and you may find yourself in a traffic jam made up of hundreds of cows sporting giant bells and colourful flowered headdresses. It’s an annual ceremony where cows get dressed up to come down from the alps to the winter pastures.
+
+It’s a lovely sight but in any case, Gruyères is one of those places you simply have to visit. The scenery is straight out of a postcard with its picture-perfect cobbled streets and old traditional buildings. It is famous around the world for the rich, fondue fantastic cheese they produce. Don’t leave without tasting some. Or better still, visit the cheese factory. 
+
+Visit Brig and the Simplon Pass
+Simplon Pass
+Simplon Pass connects Switzerland to Italy
+While the town of Brig may be a little over two hours from Geneva, it is worth the drive. Pass through many scenic towns before ending up in Brig which is the gateway to the Simplon Pass which connects Switzerland to neighbouring Italy.
+
+This scenic pass is flanked by mountain and a sheer cliff and offers fantastic views as you climb up into the snowy mountain tops.
+
+Near the pinnacle, you can stop and enjoy a little-known sport – snowkiting. The Swiss Snowkiting School here offers lessons and after just a few short hours you’ll be up and flying along with the snow with a feeling of pure exhilaration. If you decide that you just can’t get enough of that feeling book in for a few nights.
+
+STAY: Hotel Ambassador is perfectly located to explore more of the area and enjoy some fantastic French cuisine at their in house restaurant.
+
+
+
+Read more: https://www.thetravelmagazine.net/top-day-trips-from-geneva.html#ixzz6ZVZs3FMP
+Follow us: @TravelMagazine on Twitter | TheTravelMagazine on Facebook
+          </div>
+        </div>
+        <textarea type="text" id="inp" class="inp hide" spellcheck="false"></textarea>
       </div>
       <div class="dictionary">
         <div class="dictionary__head">
           <img src="Collins logo.png" alt="Collins logo" class="dictionary__logo">
-          <input type="text" class="dictionary__search">
+          <div class="dictionary__search-box">
+            <input type="text" class="dictionary__input">
+            <svg class="dictionary__search-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve"><title>Search</title><g><g><path d="M508.874,478.708L360.142,329.976c28.21-34.827,45.191-79.103,45.191-127.309c0-111.75-90.917-202.667-202.667-202.667 S0,90.917,0,202.667s90.917,202.667,202.667,202.667c48.206,0,92.482-16.982,127.309-45.191l148.732,148.732 c4.167,4.165,10.919,4.165,15.086,0l15.081-15.082C513.04,489.627,513.04,482.873,508.874,478.708z M202.667,362.667 c-88.229,0-160-71.771-160-160s71.771-160,160-160s160,71.771,160,160S290.896,362.667,202.667,362.667z"/></g></g></svg>
+          </div>
         </div>
         <div class="dictionary__definitions-box">
-
+          <h1 class="dictionary__word">joy</h1>
+          <div class="definition">
+            
+          </div>
         </div>
       </div>
     </div>

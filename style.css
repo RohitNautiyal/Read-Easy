@@ -1,5 +1,6 @@
 html {
     font-size: 10px;
+    height: 100%;
 }
 
 * {
@@ -9,23 +10,28 @@ html {
 }
 
 body {
+    font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
     height: 100%;
+    line-height: 1.15;
 }
 
-.scroller {
+/* .scroller {
     scrollbar-color: #b8b5a8 #f4f1de;
     scrollbar-width: thin;
-}
+} */
 
 input,
 textarea {
     outline: none;
     border: none;
+    font-family: inherit;
 }
 
-
-
+::selection {
+    background-color: #cce2ff;
+    color: rgba(0,0,0,.87);
+}
 /* .inp,
 .textarea-container::-webkit-scrollbar {
     display: none;
@@ -38,63 +44,54 @@ textarea {
 
 .main {
     height: 100%;
-    display: flex;
 }
 
 .side-bar {
     min-width: 4rem;
+    width: 4rem;
     height: 100%;
     background-color: #c56f6f;
-
+    
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .side-bar__logo {
-    height: 60%;
+    width: 60%;
+    height: auto;
     padding-top: 1rem;
 }
 
-.side-bar__btn {
-    width: 100%;
-    padding: 2rem 1rem;
-    margin: 0;
-    background-color: transparent;
-    border: none;
-    color: white;
-}
-
-.side-bar__btn:not(:last-child) {
-    margin-top: 2rem;
-    background-color: #6fc56f;
-}
-
 .main-container {
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-grow: 1;
+    overflow: hidden;
 }
 
 .textarea-container {
     position: relative;
     font-family: 'EB Garamond', serif;
     flex-grow: 1;
+    font-size: 2rem;
     /* padding: 0 30px; */
     height: 100%;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: hidden;
     background-color: #f4f1de;
+    background-color: #f4f1bb;
 }
 
 .edit-icon {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
-    height: 2rem;
-    width: 2rem;
+    top: 1.5rem;
+    right: 2.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
     cursor: pointer;
+    z-index: 5;
 }
 
 .edit {
@@ -109,23 +106,31 @@ textarea {
     display: none;
 }
 
-.text-div {
-    /* display: none; */
-    flex-grow: 1;
-    font-size: 20px;
-    padding: 2rem 3rem;
-    white-space: pre;
+.text-div-container {
+    height: 100%;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-#inp {
+.text-div {
+    /* display: none; */
+    width: 100%;
+    padding: 4rem;
+    white-space: pre-line;
+}
+
+.inp {
     background-color: #f4f1de;
+    color: black;
+    /* background-color: #f4f1bb; */
     font-family: inherit;
-    font-size: 20px;
+    font-size: 2rem;
     line-height: inherit;
     flex-grow: 1;
     width: 100%;
     resize: none;
-    padding: 2rem 3rem;
+    padding: 4rem;
     -webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -133,21 +138,18 @@ textarea {
     overflow-y: scroll;
 }
 
-button {
-    padding: 1rem;
-    cursor: pointer;
-}
-
 
 .dictionary {
     background-color: white;
-    width: 40%;
-    min-width: 35rem;
+    min-width: 35%;
+    width: 35%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .dictionary__head {
     width: 100%;
-    padding: 1.5rem 3rem;
+    padding: 2.5rem;
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -158,11 +160,61 @@ button {
     width: 40%;
     height: auto;
     margin: 0 auto;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
-.dictionary__search {
+.dictionary__search-box {
+    width: 100%;
+    position: relative;
+}
+
+.dictionary__input {
+    width: 100%;
     padding: 1rem 2rem;
+    padding-right: 3.5rem;
     border-radius: 7px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    color: #242423;
+}
+
+.dictionary__search-icon {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    fill: black;
+}
+
+.dictionary__definitions-box {
+    height: 100%;
+    padding: 3rem;
+}
+
+
+
+/*Scrollbar hacks*/
+body ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px
+}
+
+body ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, .1);
+    border-radius: 0
+}
+
+body ::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, .25);
+    -webkit-transition: color .2s ease;
+    transition: color .2s ease
+}
+
+body ::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(0, 0, 0, .15)
 }
