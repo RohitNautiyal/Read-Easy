@@ -1,0 +1,168 @@
+html {
+    font-size: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.scroller {
+    scrollbar-color: #b8b5a8 #f4f1de;
+    scrollbar-width: thin;
+}
+
+input,
+textarea {
+    outline: none;
+    border: none;
+}
+
+
+
+/* .inp,
+.textarea-container::-webkit-scrollbar {
+    display: none;
+}
+.inp,
+.textarea-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+} */
+
+.main {
+    height: 100%;
+    display: flex;
+}
+
+.side-bar {
+    min-width: 4rem;
+    height: 100%;
+    background-color: #c56f6f;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.side-bar__logo {
+    height: 60%;
+    padding-top: 1rem;
+}
+
+.side-bar__btn {
+    width: 100%;
+    padding: 2rem 1rem;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.side-bar__btn:not(:last-child) {
+    margin-top: 2rem;
+    background-color: #6fc56f;
+}
+
+.main-container {
+    overflow: hidden;
+    display: flex;
+    flex-grow: 1;
+}
+
+.textarea-container {
+    position: relative;
+    font-family: 'EB Garamond', serif;
+    flex-grow: 1;
+    /* padding: 0 30px; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    background-color: #f4f1de;
+}
+
+.edit-icon {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+}
+
+.edit {
+    fill: #f1c04b;
+}
+
+.done {
+    fill: #90be6d;
+}
+
+.hide {
+    display: none;
+}
+
+.text-div {
+    /* display: none; */
+    flex-grow: 1;
+    font-size: 20px;
+    padding: 2rem 3rem;
+    white-space: pre;
+}
+
+#inp {
+    background-color: #f4f1de;
+    font-family: inherit;
+    font-size: 20px;
+    line-height: inherit;
+    flex-grow: 1;
+    width: 100%;
+    resize: none;
+    padding: 2rem 3rem;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* overflow: hidden; */
+    overflow-y: scroll;
+}
+
+button {
+    padding: 1rem;
+    cursor: pointer;
+}
+
+
+.dictionary {
+    background-color: white;
+    width: 40%;
+    min-width: 35rem;
+}
+
+.dictionary__head {
+    width: 100%;
+    padding: 1.5rem 3rem;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dictionary__logo {
+    width: 40%;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+.dictionary__search {
+    padding: 1rem 2rem;
+    border-radius: 7px;
+    font-size: 1.5rem;
+}
