@@ -12,14 +12,11 @@ html {
 body {
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
+    width: 100%;
     height: 100%;
     line-height: 1.15;
+    overflow: hidden;
 }
-
-/* .scroller {
-    scrollbar-color: #b8b5a8 #f4f1de;
-    scrollbar-width: thin;
-} */
 
 input,
 textarea {
@@ -30,20 +27,16 @@ textarea {
 
 ::selection {
     background-color: #cce2ff;
-    color: rgba(0,0,0,.87);
+    color: rgba(0, 0, 0, .87);
 }
-/* .inp,
-.textarea-container::-webkit-scrollbar {
-    display: none;
-}
-.inp,
-.textarea-container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-} */
+
+/*==========================================================*/
 
 .main {
     height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
 }
 
 .side-bar {
@@ -51,7 +44,7 @@ textarea {
     width: 4rem;
     height: 100%;
     background-color: #c56f6f;
-    
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,6 +61,7 @@ textarea {
     height: 100%;
     display: flex;
     overflow: hidden;
+    position: relative;
 }
 
 .textarea-container {
@@ -79,7 +73,7 @@ textarea {
     height: 100%;
     display: flex;
     flex-direction: column;
-    overflow-y: hidden;
+    overflow: hidden;
     background-color: #f4f1de;
     background-color: #f4f1bb;
 }
@@ -87,7 +81,7 @@ textarea {
 .edit-icon {
     position: absolute;
     top: 1.5rem;
-    right: 2.5rem;
+    right: 2rem;
     height: 2.5rem;
     width: 2.5rem;
     cursor: pointer;
@@ -100,10 +94,6 @@ textarea {
 
 .done {
     fill: #90be6d;
-}
-
-.hide {
-    display: none;
 }
 
 .text-div-container {
@@ -120,7 +110,7 @@ textarea {
     white-space: pre-line;
 }
 
-.inp {
+.textarea {
     background-color: #f4f1de;
     color: black;
     /* background-color: #f4f1bb; */
@@ -132,34 +122,93 @@ textarea {
     resize: none;
     padding: 4rem;
     -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     /* overflow: hidden; */
     overflow-y: scroll;
 }
 
+/*==========================================================*/
 
-.dictionary {
-    background-color: white;
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)rotate(0deg);
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    border: 5px solid #e0e0e0;
+    border-top: 5px solid #c12d30;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%)rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%)rotate(360deg);
+    }
+}
+
+/*==========================================================*/
+
+.dictionary-container {
     min-width: 35%;
     width: 35%;
     height: 100%;
+    display: flex;
+}
+
+.dictionary__slider {
+    height: 100%;
+    min-width: 8%;
+    width: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e9c46a;
+    /* background-color: #6fc56f; */
+    display: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dictionary__slider:hover {
+    background-color: #e7bf59;
+}
+
+.dictionary__icon {
+    height: 1.7rem;
+    width: 1.7rem;
+    fill: white;
+}
+
+.dictionary {
+    width: 100%;
+    background-color: white;
+    height: 100%;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .dictionary__head {
     width: 100%;
-    padding: 2.5rem;
+    padding: 2.5rem 3rem;
     background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.dictionary__logo {
-    width: 40%;
-    height: auto;
-    margin: 0 auto;
+.dictionary__title {
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
     margin-bottom: 2rem;
 }
 
@@ -175,6 +224,8 @@ textarea {
     border-radius: 7px;
     font-size: 1.8rem;
     color: #242423;
+    letter-spacing: 1px;
+    /* font-weight: bold; */
 }
 
 .dictionary__search-icon {
@@ -189,12 +240,221 @@ textarea {
 }
 
 .dictionary__definitions-box {
-    height: 100%;
+    flex-grow: 1;
     padding: 3rem;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.definition {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    line-height: 2.3rem;
+}
+
+.definition__name {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.definition__name span {
+    display: inline-block;
+    font-size: 1.6rem;
+    color: #134FE6;
+    margin-left: 7px;
+}
+
+.definition__meaning {
+    margin-left: 5rem;
+    margin-bottom: 8px;
+}
+
+.definition__example {
+    font-style: italic;
+    font-size: 1.5rem;
+    margin-left: 5rem;
+    /* line-height: 2.2rem; */
+}
+
+/*==========================================================*/
+
+@media only screen and (max-width:1000px){
+    .dictionary-container {
+        min-width: 40%;
+        width: 40%;
+    }
+
+    .text-div,
+    .textarea {
+        padding: 3rem;
+    }
+
+    .dictionary__head {padding: 2rem}
+    .dictionary__definitions-box {padding: 2rem}
+    .edit-icon { top: 1rem; right: 1.5rem}
 }
 
 
+@media only screen and (max-width:800px){ 
 
+    .side-bar { min-width: 8%;}
+    /* .side-bar__logo { width: 40%;} */
+    
+    .side-bar__logo {
+        min-height: 70%;
+        height: 70%;
+        width: auto;
+    }
+
+    .textarea-container {
+        min-width: 92%;
+        width: 92%;
+        padding-right: 8%;
+    }
+
+    .edit-icon {
+        right: 11%;
+    }
+
+    .edit {
+        fill: rgba(241, 192, 75, 0.8);
+    }
+    
+    .done {
+        fill: rgba(144, 190, 109, 0.8);
+    }
+
+    .dictionary-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        right: -84%;
+        z-index: 10;
+        width: 92%;
+        transition: all 1s ease;
+    }
+
+
+    .dictionary__slider {
+        width: 8.7%;
+        display: flex;
+    }
+    
+    .dictionary {
+        width: 91.3%;
+    }
+
+}
+
+@media only screen and (max-width: 450px) {
+    
+    .text-div,
+    .textarea { 
+        padding: 1.5rem;
+    }
+
+    .edit-icon {
+        right: 13%;
+    }
+}
+
+/*==========================================================*/
+
+
+.dictionary-show {
+    right: 0;
+}
+
+.hide {
+    display: none;
+}
+
+/*==========================================================*/
+
+
+/* .dictionary-show {
+    animation: slideout 1s ease-out forwards;
+} */
+
+
+/* @keyframes slideout {
+    0% {
+        right: -84%;
+    }
+
+    100% {
+        right: 0;
+    }
+} */
+
+
+/* @media only screen and (min-width:1600px) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .dictionary {
+        display: none;
+    }
+} */
+
+/* .dictionary {
+    min-width: 30rem;
+    width: 30rem;
+    position: absolute;
+    top: 0;
+    right: -30rem;
+    z-index: 10;
+}
+
+.dictionary-show {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    width: 3rem;
+    background-color: rgba(255, 209, 102, 0.6);
+    z-index: 10;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.textarea-container {
+    padding-right: 3rem;
+}
+
+.edit-icon {
+    right: 5rem;
+}
+
+.dictionary-show span {
+    display: inline-block;
+    height: 4rem;
+    line-height: 0;
+}
+
+.dictionary-slideout {
+    animation: slideout 2s ease;
+}
+
+@keyframes slideout {
+    0% {
+        right: -30rem;
+    }
+
+    100% {
+        right: 0;
+    }
+} */
+
+
+/*=============================================*/
 /*Scrollbar hacks*/
 body ::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -217,4 +477,8 @@ body ::-webkit-scrollbar-thumb {
 
 body ::-webkit-scrollbar-thumb:window-inactive {
     background: rgba(0, 0, 0, .15)
+}
+
+body ::-webkit-scrollbar-thumb:hover {
+    background:rgba(128,135,139,.8)
 }
