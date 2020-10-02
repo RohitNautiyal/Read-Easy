@@ -2,7 +2,6 @@
     const text = '“Stopping by Woods On a Snowy Evening” by Robert Frost\n\nWhose woods these are I think I know.\nHis house is in the village though.\nHe will not see me stopping here\nTo watch his woods fill up with snow.\nMy little horse must think it queer\nTo stop without a farmhouse near\nBetween the woods and frozen lake\nThe darkest evening of the year.\nHe gives his harness bells a shake\nTo ask if there is some mistake.\nThe only other sound’s the sweep\nOf easy wind and downy flake.\nThe woods are lovely, dark and deep,\nBut I have promises to keep,\nAnd miles to go before I sleep,\nAnd miles to go before I sleep.\n';
     const marks = new Set([',', '.', ':', ';', '"', '\'', '?', '+', '(', ')', '#', '!', '&', '-']);
 
-    let editState = 0;
     const textarea = document.getElementById("textarea");
     const textDiv = document.querySelector(".text-div");
     const textDivContainer = document.querySelector(".text-div-container");
@@ -19,6 +18,8 @@
     const alphaList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
     let dictionaryActive = 0;
 
+    textDiv.textContent = text;
+    textarea.value = text;
 
     function getSelectionText() {
         let text = "";
@@ -36,7 +37,6 @@
             processSelection(text);
         }
     };
-    ////////////////////////////////////////////
     
     function cleanSelection(str) {
         str = str.trim();
@@ -59,33 +59,25 @@
             searchWord(selection);
         }
     }
-    /////////////////////////////////////////////
     
     editOption.addEventListener('click', (e) => {
-        if(!editState){
-            editOption.classList.toggle("hide");
-            doneOption.classList.toggle("hide");
-            textarea.value = textDiv.textContent;
-            textDivContainer.classList.toggle("hide");
-            textDiv.classList.toggle("hide");
-            textarea.classList.toggle("hide");
-            textarea.select();
-            editState = 1;
-        }
-        // textarea.setAttribute("readonly", "readonly");
+        editOption.classList.toggle("hide");
+        doneOption.classList.toggle("hide");
+        textarea.value = textDiv.textContent;
+        textDivContainer.classList.toggle("hide");
+        textDiv.classList.toggle("hide");
+        textarea.classList.toggle("hide");
+        textarea.select();
     });
 
     doneOption.addEventListener('click', (e) => {
-        if(editState){
-            editOption.classList.toggle("hide");
-            doneOption.classList.toggle("hide");
-            textDiv.classList.toggle("hide");
-            textDivContainer.classList.toggle("hide");
-            textDiv.textContent = textarea.value;
-            textarea.classList.toggle("hide");
-            textarea.select();
-            editState = 0;
-        }
+        textDiv.textContent = textarea.value;
+        editOption.classList.toggle("hide");
+        doneOption.classList.toggle("hide");
+        textDiv.classList.toggle("hide");
+        textDivContainer.classList.toggle("hide");
+        textarea.classList.toggle("hide");
+        textarea.select();
     });
     
     async function searchWord(word) {
@@ -110,7 +102,7 @@
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "mashape-community-urban-dictionary.p.rapidapi.com",
-                    "x-rapidapi-key": process.env.API_KEY
+                    "x-rapidapi-key": API_KEY
                 }
             })
             loader.classList.add("hide");
