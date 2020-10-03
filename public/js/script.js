@@ -94,17 +94,15 @@
         // console.log(word);
         loader.classList.remove("hide");
         definitions.classList.add("hide");
-        let url = "Some api url";
         let response;
         try {
-
             response = await axios(`https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=${word}`, {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "mashape-community-urban-dictionary.p.rapidapi.com",
                     "x-rapidapi-key": API_KEY
                 }
-            })
+            });
             loader.classList.add("hide");
             definitions.classList.remove("hide");
             displayDefinitions(response);
@@ -122,6 +120,7 @@
     }
     
     function displayDefinitions(data) {
+        definitions.innerHTML = "";
         if(data.data.list.length === 0) {
             let html = `<h1>Sorry! Couldn't find anything. Try searching another word.</h2>`;
             definitions.insertAdjacentHTML("beforeend", html);
@@ -129,7 +128,6 @@
         }
         const html = `<div class="definition"><div class="definition__name">%NUMBER%<span>%WORD%</span></div><div class="definition__meaning">%MEANING%</div><div class="definition__example">%EXAMPLE%</div></div>`
         let count = 0;
-        definitions.innerHTML = "";
         data.data.list.forEach(definition => {
 
             let temp = html.replace('%NUMBER%', alphaList[count]+'.');
